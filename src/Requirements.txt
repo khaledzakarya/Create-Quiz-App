@@ -1,0 +1,5 @@
+PyPDF2==3.0.1
+sentence-transformers==3.0.1
+numpy==1.26.4
+langchain-core==0.3.12
+ollama==0.1.9
