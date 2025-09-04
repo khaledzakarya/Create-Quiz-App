@@ -1,0 +1,27 @@
+from fastapi import FastAPI , APIRouter
+from .schema.quiz import QuizRequest
+from services.quiz_service import QuizService
+
+generate_router = APIRouter(
+    prefix = "/ai/generate_quiz",
+    tags = ["ai"]
+)
+
+
+@generate_router.post("/")
+async def generate_quizes(request : QuizRequest):
+    service = QuizService(request.pdf_path)
+    quiz = service.generate_quiz(
+        n_questions=request.n_questions,
+        focus_pages=request.focus_pages,
+        remain_pages=request.remain_pages,
+        n_focus=request.n_focus,
+        n_remain=request.n_remain,
+        f_mcq_ratio=request.f_mcq_ratio,
+        f_tf_ratio=request.f_tf_ratio,
+        f_written_ratio=request.f_written_ratio,
+        r_mcq_ratio=request.r_mcq_ratio,
+        r_tf_ratio=request.r_tf_ratio,
+        r_written_ratio=request.r_written_ratio
+        )
+    return quiz

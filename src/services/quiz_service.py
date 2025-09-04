@@ -21,8 +21,8 @@ class QuizService:
         )
 
         final = focus_selected + remain_selected
-        for i, q in enumerate(final, start=1):
-            q.id = i
+        # for i, q in enumerate(final, start=1):
+        #     q.id = i
         return final
 
     def generate_quiz(self, n_questions: Optional[int] = None,            
@@ -44,28 +44,25 @@ class QuizService:
                 quiz.filter_by_type("MCQ"),
                 int(n_questions * f_mcq_ratio)
             )
-            for i, q in enumerate(Final_MCQ, start=1):
-                q.id = i
+            # for i, q in enumerate(Final_MCQ, start=1):
+            #     q.id = i
 
             Final_T_F = self.selector.select_diverse(
                 quiz.filter_by_type("TrueFalse"),
                 int(n_questions * f_tf_ratio)
             )
-            for i, q in enumerate(Final_T_F, start=1):
-                q.id = i
+            # for i, q in enumerate(Final_T_F, start=1):
+            #     q.id = i
 
             Final_Written = self.selector.select_diverse(
                 quiz.filter_by_type("Written"),
                 int(n_questions * f_written_ratio)
             )
-            for i, q in enumerate(Final_Written, start=1):
-                q.id = i
+            # for i, q in enumerate(Final_Written, start=1):
+            #     q.id = i
 
-            return {
-                "MCQ": [q.to_dict() for q in Final_MCQ],
-                "TrueFalse": [q.to_dict() for q in Final_T_F],
-                "Written": [q.to_dict() for q in Final_Written],
-            }
+            final_questions = [q.to_dict() for q in Final_MCQ] + [q.to_dict() for q in Final_T_F] + [q.to_dict() for q in Final_Written]
+            return final_questions
 
         focus_chunks = [p[1] for p in pages if p[0] in focus_pages]
         remain_chunks = [p[1] for p in pages if p[0] in remain_pages]
@@ -77,5 +74,6 @@ class QuizService:
         Final_T_F = self._select_and_merge(focus_quiz, remain_quiz, "TrueFalse", n_focus, n_remain, f_tf_ratio, r_tf_ratio)
         Final_Written = self._select_and_merge(focus_quiz, remain_quiz, "Written", n_focus, n_remain, f_written_ratio, r_written_ratio)
 
-        return [q.to_dict() for q in Final_MCQ] + [q.to_dict() for q in Final_T_F] + [q.to_dict() for q in Final_Written]
+        final_questions = [q.to_dict() for q in Final_MCQ] + [q.to_dict() for q in Final_T_F] + [q.to_dict() for q in Final_Written]
+        return final_questions
 

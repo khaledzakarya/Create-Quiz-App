@@ -1,9 +1,8 @@
 from typing import List, Optional
 
 class Question:
-    def __init__(self, qid: int, qtype: str, question: str,
+    def __init__(self, qtype: str, question: str,
                  options: Optional[List[str]] = None, answer: str = ''):
-        self.id = qid
         self.type = qtype
         self.question = question
         self.options = options if options else []
@@ -11,7 +10,6 @@ class Question:
 
     def to_dict(self):
         return {
-            'id': self.id,
             'type': self.type,
             'question': self.question,
             'options': self.options,
