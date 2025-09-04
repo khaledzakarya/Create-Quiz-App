@@ -7,46 +7,42 @@ class QuestionGenerator:
 
     def _build_prompt(self, text, total_q, n_mcq, n_tf, n_written):
         return f"""
-        You are an expert quiz generator.
+    You are an expert quiz generator.
 
-        IMPORTANT RULES:
-        - You MUST generate questions STRICTLY from the provided text.
-        - Do NOT invent questions outside the text.
-        - If the text does not contain enough information, return exactly: ERROR: INSUFFICIENT DATA.
+    Task:
+    - Create exactly {total_q} quiz questions from the provided text.
+    - Distribution:
+      • {n_mcq} Multiple Choice Questions (4 options)
+      • {n_tf} True/False Questions
+      • {n_written} Written Questions
 
-        Task:
-        - Create exactly {total_q} quiz questions.
-        - Distribution:
-          • {n_mcq} Multiple Choice Questions (MCQ)
-          • {n_tf} True/False Questions
-          • {n_written} Written Questions
+    Output Rules:
+    - STRICTLY return JSON, no extra text.
+    - Structure must be:
 
-        Output Rules:
-        - STRICTLY return JSON, no extra text.
-        - Structure must be:
-
+    {{
+      "quiz": [
         {{
-          "quiz": [
-            {{
-              "id": <number>,
-              "type": "MCQ" | "TrueFalse" | "Written",
-              "question": "<question text>",
-              "options": ["A) ...", "B) ...", "C) ...", "D) ..."],   // only for MCQ
-              "answer": "<answer>"
-            }}
-          ]
+          "type": "MCQ" | "TrueFalse" | "Written",
+          "question": "<question text>",
+          "options": ["...", "...", "...", "..."],   // only for MCQ, no A/B/C/D
+          "answer": "<answer>"
         }}
+      ]
+    }}
 
-        Notes:
-        - True/False → "answer": "True" or "False"
-        - Written → short model answer (1–3 sentences)
-        - MCQ → 4 options, one must be correct (matching "answer")
+    Notes:
+    - True/False → "answer": "True" or "False"
+    - Written → short model answer (1–3 sentences)
+    - MCQ → provide 4 options, correct one must exactly match one of the "options"
+    - Every question MUST have a valid "answer"
+    - No explanation, no extra commentary, ONLY valid JSON.
+    Text:
+    ---
+    {text}
+    ---
+    """
 
-        Text to use (do NOT go beyond this):
-        ---
-        {text}
-        ---
-        """
 
     def generate(self, text_chunks: list, n_questions: int,
                  mcq_ratio: float = 0.6, tf_ratio: float = 0.2,
@@ -68,16 +64,21 @@ class QuestionGenerator:
                     {"role": "system", "content": f"""
                         You are a structured quiz generator.
                         RULES:
-                        1. Generate ONLY from the given text.
-                        2. Exactly {total_q} questions.
-                           - {n_mcq} MCQ
-                           - {n_tf} True/False
-                           - {n_written} Written
-                        3. IDs start at 1 and increment by 1.
-                        4. JSON ONLY, no explanations, no notes.
-                        5. If invalid JSON → output: ERROR: JSON PARSE.
-                        6. If count wrong → output: ERROR: QUESTION COUNT VIOLATION.
-                        7. If nothing relevant in text → output: ERROR: INSUFFICIENT DATA.
+                            1. You must generate EXACTLY {total_q} questions in total.
+                            2. The distribution must be EXACTLY:
+                            - {n_mcq} Multiple Choice Questions (MCQ)
+                            - {n_tf} True/False Questions
+                            - {n_written} Written Questions
+                            3. Each question must strictly follow the JSON format provided.
+                            4. Do not add explanations, notes, or greetings.
+                            5. Do not skip or add fields in the JSON structure.
+                            6. Every question MUST include a non-empty "answer" field:
+                            - For MCQ: the correct option must be specified in "answer".
+                            - For True/False: "answer" must be either "True" or "False".
+                            - For Written: "answer" must contain a clear reference solution.
+                            7. If you cannot follow the format, output exactly: ERROR: FORMAT VIOLATION.
+                            8. If the number of questions, their distribution, or the presence of answers does not match the requirement, output exactly: ERROR: QUESTION COUNT VIOLATION.
+                            9. Only output valid JSON. If invalid, output exactly: ERROR: JSON PARSE.
                     """},
                     {"role": "user", "content": prompt}
                 ],
