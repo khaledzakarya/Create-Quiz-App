@@ -9,5 +9,5 @@ class PDFReader:
         pages = []
         for idx, page in enumerate(reader.pages, start=1):
             pages.append((idx, page.extract_text()))
-        
+            print(page.extract_text())
         return pages

@@ -47,6 +47,7 @@ class QuestionGenerator:
     def generate(self, text_chunks: list, n_questions: int,
                  mcq_ratio: float = 0.6, tf_ratio: float = 0.2,
                  written_ratio: float = 0.2):
+        
         n_mcq = math.ceil(n_questions * mcq_ratio)
         n_tf = math.ceil(n_questions * tf_ratio)
         n_written = math.ceil(n_questions * written_ratio)
@@ -54,8 +55,7 @@ class QuestionGenerator:
 
         all_questions = []
         for page in text_chunks:
-            print(f"\n[DEBUG] Page Content >>>>>>\n{page}\n")
-
+            print(f"page content >>>>>>>>>{page}")
             prompt = self._build_prompt(page, total_q, n_mcq, n_tf, n_written)
 
             response = ollama.chat(
@@ -79,12 +79,12 @@ class QuestionGenerator:
                             7. If you cannot follow the format, output exactly: ERROR: FORMAT VIOLATION.
                             8. If the number of questions, their distribution, or the presence of answers does not match the requirement, output exactly: ERROR: QUESTION COUNT VIOLATION.
                             9. Only output valid JSON. If invalid, output exactly: ERROR: JSON PARSE.
+                            10. Do not add any id field
                     """},
                     {"role": "user", "content": prompt}
                 ],
                 format="json"
             )
-
             result = response['message']['content']
 
             # ✅ Handle errors
@@ -101,7 +101,6 @@ class QuestionGenerator:
             for item in quiz_json.get("quiz", []):
                 all_questions.append(
                     Question(
-                        item.get("id"),
                         item.get("type"),
                         item.get("question"),
                         item.get("options", []),
