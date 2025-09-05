@@ -1,5 +1,5 @@
 from fastapi import FastAPI , APIRouter
-from .schema.quiz import QuizRequest
+from .schema import QuizRequest
 from services.quiz_service import QuizService
 
 generate_router = APIRouter(
@@ -12,6 +12,7 @@ generate_router = APIRouter(
 async def generate_quizes(request : QuizRequest):
     service = QuizService(request.pdf_path)
     quiz = service.generate_quiz(
+        level=request.level,
         n_questions=request.n_questions,
         focus_pages=request.focus_pages,
         remain_pages=request.remain_pages,
