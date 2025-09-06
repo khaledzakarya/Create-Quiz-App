@@ -1,9 +1,12 @@
 from sentence_transformers import SentenceTransformer, util
+from helpers.config import get_settings
 import numpy as np
 
 class QuestionSelector:
-    def __init__(self, model: str = "all-MiniLM-L6-v2"):
-        self.embedding_model = SentenceTransformer(model)
+    def __init__(self, model: str = None):
+        settings = get_settings()
+        self.model = model or settings.EMBEDDING_MODEL
+        self.embedding_model = SentenceTransformer(self.model)
 
     def select_diverse(self, questions, k: int):
         if k >= len(questions):
