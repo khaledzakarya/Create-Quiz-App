@@ -1,52 +1,14 @@
 import ollama, json, math
 from models.quiz import Question, Quiz
+from stores.llm.templates.template_parser import TemplateParser
 from helpers.config import get_settings
 
 
 class QuestionGenerator:
-    def __init__(self, model: str = None):
+    def __init__(self, model: str = None, language: str = "en"):
         settings = get_settings()
         self.model = model or settings.QUIZ_GENERATION_MODEL
-
-    def _build_prompt(self, level: str, text: str, total_q: int, n_mcq: int, n_tf: int, n_written: int):
-        return f"""
-    You are an expert quiz generator.
-    
-    Task:
-    - Create exactly {total_q} quiz questions from the provided text.
-    - Difficulty Level: {level}
-    - Distribution:
-      • {n_mcq} Multiple Choice Questions (4 options)
-      • {n_tf} True/False Questions
-      • {n_written} Written Questions
-
-    Output Rules:
-    - STRICTLY return JSON, no extra text.
-    - Structure must be:
-
-    {{
-      "quiz": [
-        {{
-          "type": "MCQ" | "TrueFalse" | "Written",
-          "question": "<question text>",
-          "options": ["...", "...", "...", "..."],   // only for MCQ, no A/B/C/D
-          "answer": "<answer>"
-        }}
-      ]
-    }}
-
-    Notes:
-    - True/False → "answer": "True" or "False"
-    - Written → short model answer (1–3 sentences)
-    - MCQ → provide 4 options, correct one must exactly match one of the "options"
-    - Every question MUST have a valid "answer"
-    - Difficulty Level ({level}) must be reflected in how complex the questions and answers are.
-    - No explanation, no extra commentary, ONLY valid JSON.
-    Text:
-    ---
-    {text}
-    ---
-    """
+        self.template_parser = TemplateParser(language)
 
 
     def generate(self, level: str, text_chunks: list, n_questions: int,
@@ -61,7 +23,17 @@ class QuestionGenerator:
         all_questions = []
         for page in text_chunks:
             print(f"page content >>>>>>>>>{page}")
-            prompt = self._build_prompt(page, level, total_q, n_mcq, n_tf, n_written)
+            prompt = self.template_parser.get(
+                "prompt", "quiz_prompt",
+                {
+                    "level": level,
+                    "text": page,
+                    "total_q": total_q,
+                    "n_mcq": n_mcq,
+                    "n_tf": n_tf,
+                    "n_written": n_written
+                }
+            )
 
             response = ollama.chat(
                 model=self.model,
