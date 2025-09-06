@@ -1,6 +1,6 @@
 from fastapi import FastAPI , APIRouter
 from .schema import QuizRequest
-from services.quiz_service import QuizService
+from stores.llm.quiz_service import QuizService
 
 generate_router = APIRouter(
     prefix = "/ai/generate_quiz",
@@ -10,7 +10,7 @@ generate_router = APIRouter(
 
 @generate_router.post("/")
 async def generate_quizes(request : QuizRequest):
-    service = QuizService(request.pdf_path)
+    service = QuizService(pdf_path=request.pdf_path, language=request.language)
     quiz = service.generate_quiz(
         level=request.level,
         n_questions=request.n_questions,

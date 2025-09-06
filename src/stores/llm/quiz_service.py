@@ -6,12 +6,12 @@ from typing import List, Optional
 from helpers.config import get_settings
 
 class QuizService:
-    def __init__(self, pdf_path: str, model: Optional[str] = None):
+    def __init__(self, pdf_path: str, model: Optional[str] = None, language: str = "en"):
         settings = get_settings()
         model_name = model or settings.QUIZ_GENERATION_MODEL
 
         self.reader = PDFReader(pdf_path)
-        self.generator = QuestionGenerator(model=model_name)
+        self.generator = QuestionGenerator(model=model_name, language = language)
         self.selector = QuestionSelector()
 
     

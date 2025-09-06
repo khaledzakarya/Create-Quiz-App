@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import Optional,List
 
 class QuizRequest(BaseModel):
+    language: str
     level: str
     pdf_path: str
     n_questions: Optional[int] = None         
