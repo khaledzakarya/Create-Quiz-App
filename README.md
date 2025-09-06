@@ -93,19 +93,24 @@ src
    venv\Scripts\activate      # Windows
    ```
 
-3. Install dependencies:
+3. Setup the environment variables
+    ```bash
+    $ cp .env.example .env
+    ```  
+
+4. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Run FastAPI server:
+5. Run FastAPI server:
    ```bash
    uvicorn main:app --reload
    ```
 
 ---
 
-## 🔗 API Endpoints
+## API Endpoints
 
 ### Generate Quiz
 ```http
