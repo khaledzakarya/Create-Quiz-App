@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c0444d01-3937-42ba-a689-d243e6b0ccd2" name="Changes" comment="Enhance the feedback content">
+      <change afterPath="$PROJECT_DIR$/Notebooks/Prefinal_Create_Quizes.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/QuestionGenerator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/enums/QuestionTypeEnum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/enums/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/generate_quiz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/schema/QuizRequest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/schema/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/src/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Notebooks/correction.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/pdf_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PDFReader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/question_generator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/question_selector.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/QuestionSelector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/quiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/quiz.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/quiz_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/quiz_service.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="32D5ACenMercy6YM86TkmaCXrLY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "Merging feedback__std",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0444d01-3937-42ba-a689-d243e6b0ccd2" name="Changes" comment="" />
+      <created>1756942160816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756942160816</updated>
+      <workItem from="1756942162973" duration="3644000" />
+      <workItem from="1757016588900" duration="11381000" />
+      <workItem from="1757077757035" duration="148000" />
+      <workItem from="1757084039359" duration="1596000" />
+      <workItem from="1757086435596" duration="175000" />
+      <workItem from="1757086657018" duration="6248000" />
+      <workItem from="1757097891444" duration="1975000" />
+      <workItem from="1757102521642" duration="3407000" />
+      <workItem from="1757156760644" duration="8207000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: implement student feedback API">
+      <option name="closed" value="true" />
+      <created>1756943615840</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1756943615840</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add student feedback generation model">
+      <option name="closed" value="true" />
+      <created>1756943712796</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1756943712796</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update: generate feedback for entire exam (AR &amp; EN) and refine summary">
+      <option name="closed" value="true" />
+      <created>1757097292988</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757097292988</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update: build summary from correct/weak topics">
+      <option name="closed" value="true" />
+      <created>1757097329771</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1757097329771</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Enhance the feedback content">
+      <option name="closed" value="true" />
+      <created>1757165478199</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1757165478199</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Enhance the feedback content">
+      <option name="closed" value="true" />
+      <created>1757165868700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757165868700</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: implement student feedback API" />
+    <MESSAGE value="add student feedback generation model" />
+    <MESSAGE value="update: generate feedback for entire exam (AR &amp; EN) and refine summary" />
+    <MESSAGE value="update: build summary from correct/weak topics" />
+    <MESSAGE value="Enhance the feedback content" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance the feedback content" />
+  </component>
+</project>
